@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="jquery-3.7.1.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- favicon -->
+    <link rel="icon" href="Images/LAfavicon_white.png" type="image/png">
+
+    <style>
+      /* Styles for map cards to enlarge them when users hover over them */
+      .card {
+        transition: transform .2s;
+      }
+      .card:hover {
+        transform: scale(1.5);
+        z-index: 50;
+      }
+    </style>
+
+  <title>Map</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-danger navbar-danger">
+      <div class="container">
+        <a class="navbar-brand" href="./"><img src="./Images/LAfavicon_white.png" height="24px" width="auto" alt="Company Logo">L-AS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="./Map">Map</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./Contact">Contact</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+
+    <!-- Game Navbar -->
+    <nav class="navbar bg-danger navbar-danger">
+      <div class="container-fluid d-flex justify-content-between align-items-center w-100">
+        <div class="d-flex justify-content-center flex-grow-1">
+          <ul class="navbar-nav flex-row">
+  
+            <li class="nav-item px-2">
+              <a class="nav-link" href="./LivingRoom">Living Room</a>
+            </li>
+            <li class="nav-item px-2">
+              <a class="nav-link" href="./KitchenRoom">Kitchen</a>
+            </li>
+            <li class="nav-item px-2">
+              <a class="nav-link" href="./BedRoom">Bed Room</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Map Content -->
+    <main>
+      <div class="container justify-content-center mt-5 text-center">
+        <h2 class="fw-bold text-body-emphasis pb-4">Map</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          
+          <!-- Living Room Card -->
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="./LivingRoom"><img src="./Images/Rooms/Livingroom.png" width="100%" height="225" alt="Image of Living room page"></a>
+              <div class="card-body">
+                <p class="card-text">The Living Room will be your first room to look through to find items.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Kitchen Card -->
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="./KitchenRoom"><img src="./Images/Rooms/Kitchen.png" width="100%" height="225" alt="Image of Kitchen page"></a>
+              <div class="card-body">
+                <p class="card-text">The Kitchen will be your second room to look through to find items.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Bed Room Card -->
+          <div class="col">
+            <div class="card shadow-sm">
+              <a href="./BedRoom"><img src="./Images/Rooms/Bedroom.png" width="100%" height="225" alt="Image of bedroom page"></a>
+              <div class="card-body">
+                <p class="card-text">The Bed Room will be your last room to look through to find items.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <!-- Copyright -->
+    <div class="col-md-4 d-flex align-items-center">
+      <img src="./Images/LAfavicon.png" alt="Load-Shedding Awareness" height="24" width="auto" class="d-inline-block align-text-top">
+      <span class="mb-3 mb-md-0 text-body-secondary">© 2025, Load-Shedding Awareness</span>
+    </div>
+
+    <!-- Social Media Links -->
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"> <a href="https://www.facebook.com/"><img src="./Images/Social Media Images/facebook.png" height="24" width="auto" alt="Facebook Link"></a></li>
+      <li class="ms-3"> <a href="https://www.instagram.com/"><img src="./Images/Social Media Images/instagram.png" height="24" width="auto" alt="Instaram Link"></a></li>
+      <li class="ms-3"> <a href="https://www.linkedin.com/"><img src="./Images/Social Media Images/linkedin.png" height="24" width="auto" alt="Linkedin Link"></a></li>
+      <li class="ms-3"> <a href="https://x.com/?lang=en"><img src="./Images/Social Media Images/twitter.png" height="24" width="auto" alt="Twitter Link"></a></li>
+      <li class="ms-3"> <a href="https://www.youtube.com/"><img src="./Images/Social Media Images/youtube.png" height="24" width="auto" alt="YouTube Link"></a></li>
+      <li class="ms-3"> <a href="https://www.tiktok.com/"><img src="./Images/Social Media Images/tiktok.png" height="24" width="auto" alt="TikTok Link"></a></li>
+    </ul>
+  </footer>
+    <!-- javascript Links -->
+    <script src="javascript.js"></script>
+    <!-- Bootstrap javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>   
+</body>
+</html>

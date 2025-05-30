@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="jquery-3.7.1.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- favicon -->
+    <link rel="icon" href="Images/LAfavicon_white.png" type="image/png">
+    <!--Image map resizer-->
+    <script src="https://cdn.jsdelivr.net/npm/image-map-resizer@1.0.10/js/imageMapResizer.min.js"></script>
+
+  <style>
+    :root {
+    cursor: crosshair;
+    --cursorX: 50vw;
+    --cursorY: 50vh;
+    }
+    :root:before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    pointer-events: none;
+    background: radial-gradient(circle 10vmax at var(--cursorX) var(--cursorY),#c7c7d8  0%,rgba(0,0,0,.5) 80%,rgba(0,0,0,.95) 100%);
+    }
+    #tooltip {
+      position: absolute;
+      display: none;
+      background: #333;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 14px;
+      pointer-events: none;
+      z-index: 60;
+    }
+
+    .click-effect {
+      position: absolute;
+      border-radius: 50%;
+      background: red;
+      opacity: 0.8;
+      transform: scale(0);
+      animation: expandAndFade 0.6s ease-out forwards;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    @keyframes expandAndFade {
+      to {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <title>Living Room</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container">
+      <a id="homeLink" class="navbar-brand" href="./"><img src="./Images/LAfavicon_white.png" height="24px" width="auto" alt="Company Logo">L-AS</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./Map">Map</a>
+          </li>
+          <li class="nav-item">
+            <a id="contactLink" class="nav-link" href="./Contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Game Navbar -->
+  <nav class="navbar bg-dark navbar-dark">
+    <div class="container-fluid d-flex justify-content-between align-items-center w-100">
+      <div class="d-flex justify-content-center flex-grow-1">
+        <ul class="navbar-nav flex-row">
+
+          <li class="nav-item px-2">
+            <a class="nav-link active text-danger" href="./LivingRoom">Living Room</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="./KitchenRoom">Kitchen</a>
+          </li>
+          <li class="nav-item px-2">
+            <a class="nav-link" href="./BedRoom">Bed Room</a>
+          </li>
+        </ul>
+
+        <!-- Finish Button -->
+        <div class="position-absolute end-0 me-3">
+          <button class="btn btn-dark" id="finishButton" data-bs-toggle="modal" data-bs-target="#ScoreBoardModal">Finish</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Game Content -->
+  <main>
+      <div class="container mt-5">
+        <img src="./Images/Rooms/Livingroom.png" id="livingRoomImg" alt="Living Room Background" usemap="#livingRoomMap" width="100%" style="height: auto; display: block;">
+
+        <map name="livingRoomMap">
+          <area shape="rect" coords="700,37,1251,151" id="LivItemOne" href="#" data-tooltip="Air Conditioner"> <!--Air Conditioner-->
+          <area shape="rect" coords="1200,290,1300,426" id="LivItemTwo" href="#" data-tooltip="Speakers"> <!--Speakers-->
+          <area shape="rect" coords="1758,283,1858,419" id="LivItemThree" href="#" data-tooltip="Amplifier"> <!--Amp-->
+          <area shape="rect" coords="1342,309,1731,502" id="LivItemFour" href="#" data-tooltip="Television"> <!--TV-->
+          <area shape="rect" coords="191,463,114,390" id="LivItemFive" href="#" data-tooltip="Light Switches"> <!--Lights-->
+          <area shape="rect" coords="399,558,522,699" id="LivItemSix" href="#" data-tooltip="Heater"> <!--Heater-->
+          <area shape="rect" coords="1310,566,1531,663" id="LivItemSeven" href="#" data-tooltip="Television Box"> <!--TV Box-->
+          <area shape="rect" coords="1531,566,1756,663" id="LivItemEight" href="#" data-tooltip="Decoder"> <!--Decoder-->
+          <area shape="rect" coords="241,333,308,672" id="LivItemNine" href="#" data-tooltip="Fan"> <!--Fan-->
+          <area shape="rect" coords="1130,474,1281,626" id="LivItemTen" href="#" data-tooltip="Roomba"> <!--Roomba-->
+        </map>
+      </div>
+  </main>
+
+  <!-- Footer: Bottom Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-bottom p-2">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+
+      <!-- Left side  -->
+      <span class="navbar-brand mb-0 h6">Progress</span>
+
+      <!-- Centered progress bar -->
+      <div class="flex-grow-1 mx-3">
+        <div class="progress" style="height: 20px;">
+          <div class="progress-bar bg-danger" role="progressbar" style="width: 40%;" aria-valuenow="40"
+            aria-valuemin="0" aria-valuemax="100">40%
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side: Navigate between rooms -->
+      <button class="btn btn-outline-light btn-sm" onclick="location.href='./KitchenRoom'">Next</button>
+    </div>
+  </nav>
+
+  <!-- Modal for Finish button -->
+  <div class="modal fade" id="ScoreBoardModal" tabindex="-1" aria-labelledby="ScoreBoardModalLabel" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+          <h1 class="fw-bold mb-0 fs-2" id="ScoreBoardModalLabel">Scoreboard</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-5 pt-0">
+          <table id="scoreboardTable" class="table table-dark table-bordered table-striped mt-3">
+            <thead>
+              <tr>
+                <th>Player</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- JavaScript will insert rows here -->
+            </tbody>
+          </table>
+          <p id="congratsMessage"></p>
+          <div class="d-flex gap-2 justify-content-center">
+            <button id="restartLink" class="w-100 mb-2 btn btn-lg rounded-3 btn-dark" onclick="location.href='./Map'">Restart</button>
+            <button id="downloadScoreBtn" class="w-100 mb-2 btn btn-lg rounded-3 btn-dark">Download Scoreboard</button>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-dark" onclick="location.href='./Contact'">Contact Page</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tooltip"></div>
+
+    <!-- javascript Links -->
+    <script>
+      const roomKey = "LivingRoomScore";
+      const maxScore = 10;
+
+      // Get current score from localStorage or initialize it
+      let score = parseInt(localStorage.getItem(roomKey)) || 0;
+
+      // Update progress bar on page load
+      updateProgressBar(score);
+
+      // Attach event listeners to all the items
+      for (let i = 1; i <= maxScore; i++) {
+        const area = document.getElementById(`LivItem${numberToWord(i)}`);
+        
+        if (localStorage.getItem(`LivingRoomClicked${i}`) === "true") {
+          area.setAttribute("data-clicked", "true");
+        }
+
+        area.addEventListener('click', (e) => {
+          e.preventDefault();
+          const x = e.pageX;
+          const y = e.pageY;
+
+          showClickEffect(x, y, score); // Show the effect at click location
+
+          if (!localStorage.getItem(`LivingRoomClicked${i}`)) {
+            score++;
+            localStorage.setItem(roomKey, score);
+            localStorage.setItem(`LivingRoomClicked${i}`, "true");
+            area.setAttribute("data-clicked", "true");
+            updateProgressBar(score);
+          }
+        });
+      }
+
+      //Update the progress bar based on the current score/items found
+      function updateProgressBar(currentScore) {
+        const percent = (currentScore / maxScore) * 100;
+        const bar = document.querySelector(".progress-bar");
+        bar.style.width = percent + "%";
+        bar.setAttribute("aria-valuenow", percent);
+        bar.textContent = `${percent}%`;
+      }
+
+      // Show click effect on the image when an item is found
+      function showClickEffect(x, y, score) {
+        const size = 30 + Math.pow(score, 1.5) * 5;//Math fuction to increase size of click effect
+        const effect = document.createElement("div");
+        effect.className = "click-effect";
+        effect.style.width = size + "px";
+        effect.style.height = size + "px";
+        effect.style.left = (x - size / 2) + "px";
+        effect.style.top = (y - size / 2) + "px";
+        effect.style.position = "absolute";
+
+        document.body.appendChild(effect);
+
+        effect.addEventListener("animationend", () => {
+          effect.remove();
+        });
+      }
+
+      // Utility to match the IDs of item buttons (e.g., "LivItemOne", "LivItemTwo")
+      function numberToWord(number) {
+        const words = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten"];
+        return words[number - 1];
+      }
+
+      // Event listener that automatically resizes image map coords based on image size
+      window.addEventListener('load', function () {
+
+        imageMapResize();
+
+      })
+
+      // Event listener that enables tooltips to display
+      document.addEventListener("DOMContentLoaded", function () {
+        const tooltip = document.getElementById("tooltip");
+
+        // Allows the tooltip being displayed to follow the user's mouse
+        document.querySelectorAll("area[data-tooltip]").forEach(area => {
+          const text = area.getAttribute("data-tooltip");
+
+          area.addEventListener("mouseenter", (e) => {
+            tooltip.textContent = text;
+            tooltip.style.display = "block";
+          });
+
+          area.addEventListener("mousemove", (e) => {
+            tooltip.style.left = (e.pageX + 10) + "px";
+            tooltip.style.top = (e.pageY + 10) + "px";
+          });
+
+          area.addEventListener("mouseleave", () => {
+            tooltip.style.display = "none";
+          });
+        });
+      })
+
+    </script>
+    <script src="javascript.js"></script>
+    <!-- Bootstrap javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+</body>
+</html>

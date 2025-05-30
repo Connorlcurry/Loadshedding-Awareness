@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="jquery-3.7.1.min.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- favicon -->
+  <link rel="icon" href="Images/LAfavicon_white.png" type="image/png">
+
+  <title>Load-Shedding Awareness</title>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-danger navbar-danger">
+      <div class="container">
+        <a class="navbar-brand" href="./"><img src="./Images/LAfavicon_white.png" height="24px" width="auto" alt="Company Logo">L-AS</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <span class="nav-link" id="currentDate"></span>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Language</a>
+              <ul id="lang-Select" class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">English</a></li>
+                <li><a class="dropdown-item" href="#">Afrikaans</a></li>
+                <li><a class="dropdown-item" href="#">Xhosa</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./Contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  </nav>
+  
+  <!-- Main content -->
+  <main class="container mt-5 text-center">
+    <div class="px-4 pt-2 my-5">
+      <!-- Welcome Message and Discription -->
+      <h2 id="welcomeText" class="fw-bold text-body-emphasis">Welcome to the Load-Shedding Awareness Game</h2>
+      <p id="introText" class="lead mb-4">This is a game that will help you understand the importance of saving electricity.</p>
+      <p id="goalText" class="lead mb-4">The goal of this interactive web application is to raise awareness about electricity wastage in 
+        everyday households, particularly in the South African context where load shedding is a recurring issue. By educating users about 
+        the power consumption of various household electronic devices, the project aims to promote more responsible energy use.
+        Through gamification and storytelling, the application seeks to instill lasting behavioral change that could ultimately
+        contribute to reducing power demand and preserving the environment.</p>
+      <!-- Company Logo -->
+      <img src="./Images/LAfavicon.png" alt="Company Logo" class="img-fluid mb-4" width="200" height="auto">
+      <!-- Instructions and start -->
+       
+      <h2 id="howToPlayTitle" class="fw-bold text-body-emphasis">How to play</h2>
+      <p id="howToPlayText" class="lead mb-4">Players begin the game in a dark, load-shedding-affected house where their cursor acts as a flashlight.
+        As they explore different rooms—each styled with African-themed décor—they must locate and click on electronic
+        devices hidden in the darkness. Each found device gradually restores light to the room, symbolizing energy savings.
+        The game progresses through multiple rooms, with each discovery boosting the player’s score. At the end, players
+        are shown their final score and can view or compete on a leaderboard, retry for a better score, or share the
+        experience. This interactive format blends education with fun to maximize user engagement and awareness.</p>
+      <!-- Start game button -->
+      <button id="startButton" type="button" class="btn btn-outline-danger btn-lg px-4" data-bs-toggle="modal" data-bs-target="#playModal">Start</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <!-- Copyright -->
+    <div class="col-md-4 d-flex align-items-center">
+      <img src="./Images/LAfavicon.png" alt="Load-Shedding Awareness" height="24" width="auto" class="d-inline-block align-text-top">
+      <span class="mb-3 mb-md-0 text-body-secondary">© 2025, Load-Shedding Awareness</span>
+    </div>
+
+    <!-- Social Media Links -->
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <li class="ms-3"> <a href="https://www.facebook.com/"><img src="./Images/Social Media Images/facebook.png" height="24" width="auto" alt="Facebook Link"></a></li>
+      <li class="ms-3"> <a href="https://www.instagram.com/"><img src="./Images/Social Media Images/instagram.png" height="24" width="auto" alt="Instaram Link"></a></li>
+      <li class="ms-3"> <a href="https://www.linkedin.com/"><img src="./Images/Social Media Images/linkedin.png" height="24" width="auto" alt="Linkedin Link"></a></li>
+      <li class="ms-3"> <a href="https://x.com/?lang=en"><img src="./Images/Social Media Images/twitter.png" height="24" width="auto" alt="Twitter Link"></a></li>
+      <li class="ms-3"> <a href="https://www.youtube.com/"><img src="./Images/Social Media Images/youtube.png" height="24" width="auto" alt="YouTube Link"></a></li>
+      <li class="ms-3"> <a href="https://www.tiktok.com/"><img src="./Images/Social Media Images/tiktok.png" height="24" width="auto" alt="TikTok Link"></a></li>
+    </ul>
+  </footer>
+
+  <!-- Modal for Username input -->
+  <div class="modal fade" id="playModal" tabindex="-1" aria-labelledby="playModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content rounded-4 shadow">
+        <div class="modal-header p-5 pb-4 border-bottom-0">
+          <h1 class="fw-bold mb-0 fs-2" id="playModalLabel">Insert your name</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-5 pt-0">
+          <form id="startGameForm">
+            <p>Insert your details to play the game.</p>
+
+            <!-- Full Name -->
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control rounded-3" id="fullNameInput" placeholder="Enter your name">
+              <label for="fullNameInput">Full Name</label>
+            </div>
+
+            <!-- Gender Dropdown -->
+            <div class="form-floating mb-3">
+              <select class="form-select rounded-3" id="genderSelect">
+                <option value="" selected>Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+              <label for="genderSelect">Gender</label>
+            </div>
+            <button class="w-100 mb-2 btn btn-lg rounded-3 btn-danger" type="submit">Start</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- javascript Links -->
+  <script src="javascript.js"></script>
+  <!-- Bootstrap javascript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    //Display Date Function
+    function displayDate() {
+      const today = new Date();
+      
+      const dateObject = {
+        day: String(today.getDate()).padStart(2, '0'),
+        month: String(today.getMonth() + 1).padStart(2, '0'),
+        year: today.getFullYear()
+      };
+
+      const formattedDate = `${dateObject.day}/${dateObject.month}/${dateObject.year}`;
+      document.getElementById('currentDate').textContent = formattedDate;
+    }
+    displayDate();
+    //Languages
+    const translate = {
+      en: {
+        welcome: "Welcome to the Load-Shedding Awareness Game",
+        intro: "This is a game that will help you understand the importance of saving electricity.",
+        goal: `The goal of this interactive web application is to raise awareness about electricity wastage in everyday households,
+              particularly in the South African context where load shedding is a recurring issue. By educating users about the power
+              consumption of various household electronic devices, the project aims to promote more responsible energy use.
+              Through gamification and storytelling, the application seeks to instill lasting behavioral change that could ultimately
+              contribute to reducing power demand and preserving the environment.`,
+        howToPlayTitle: "How to play",
+        howToPlay: `Players begin the game in a dark, load-shedding-affected house where their cursor acts as a flashlight.
+                    As they explore different rooms—each styled with African-themed décor—they must locate and click on electronic
+                    devices hidden in the darkness. Each found device gradually restores light to the room, symbolizing energy savings.
+                    The game progresses through multiple rooms, with each discovery boosting the player’s score. At the end, players
+                    are shown their final score and can view or compete on a leaderboard, retry for a better score, or share the
+                    experience. This interactive format blends education with fun to maximize user engagement and awareness.`,
+        startButton: "Start"
+      },
+      af: {
+        welcome: "Welkom by die Krag Besparing Speletjie",
+        intro: "Hierdie is 'n speletjie wat jou sal help om die belangrikheid van elektrisiteitsbesparing te verstaan.",
+        goal: `Die doel van hierdie interaktiewe webtoepassing is om bewustheid te skep oor elektrisiteitsvermorsing in alledaagse
+              huishoudings, veral in die Suid-Afrikaanse konteks waar beurtkrag 'n herhalende probleem is.`,
+        howToPlayTitle: "Hoe om te speel",
+        howToPlay: `Spelers begin die speletjie in 'n donker huis waar hul wyser as 'n flitslig werk.
+                    Soos hulle deur die kamers beweeg, moet hulle elektroniese toestelle soek wat in die donker versteek is.
+                    Elke toestel wat gevind word, bring lig terug in die kamer en verhoog hul telling.`,
+        startButton: "Begin"
+      },
+      xh: {
+        welcome: "Wamkelekile kuMdlalo wokuQaphela uLoad-Shedding",
+        intro: "Lo ngumdlalo oya kukunceda uqonde ukubaluleka kokugcina umbane.",
+        goal: `Injongo yale webhusayithi yintsebenziswano yokwazisa abantu malunga nokuchitha umbane emakhayeni, 
+              ingakumbi eMzantsi Afrika apho ukusilela kombane kuqhelekile.`,
+        howToPlayTitle: "Uyidlala njani",
+        howToPlay: `Abadlali baqala kumdlalo kwindlu emnyama apho ikhesa yabo isebenza njenge-flashlight.
+                    Kufuneka bafumane izixhobo zombane ezifihlakeleyo. Njengoko bezifumana, ukukhanya kubuya kancinci kancinci.`,
+        startButton: "Qala"
+      }
+    }; 
+
+    function setLanguage(lang) {
+      localStorage.setItem("preferredlanguage", lang);
+      document.getElementById("welcomeText").innerText = translate[lang].welcome;
+      document.getElementById("introText").innerText = translate[lang].intro;
+      document.getElementById("goalText").innerText = translate[lang].goal;
+      document.getElementById("howToPlayTitle").innerText = translate[lang].howToPlayTitle;
+      document.getElementById("howToPlayText").innerText = translate[lang].howToPlay;
+      document.getElementById("startButton").innerText = translate[lang].startButton;
+      // Set the selected language in the dropdown
+      document.getElementById("lang-Select").value = lang;
+    }
+
+    document.querySelectorAll("#lang-Select .dropdown-item").forEach(item => {
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        const selectedLang = this.textContent.trim().toLowerCase();
+        if (selectedLang === "english") setLanguage("en");
+        else if (selectedLang === "afrikaans") setLanguage("af");
+        else if (selectedLang === "xhosa") setLanguage("xh");
+      });
+    });
+
+    // Set Optional to load our default language via browser settings
+    window.onload = function() {
+        const saveLang = localStorage.getItem("preferredlanguage")
+        const userLanguage = saveLang || (navigator.language.startsWith ("en") ? "en" : 
+                            navigator.language.startsWith ("af") ? "af" : "xh");
+                            setLanguage(userLanguage);
+      }
+  </script>   
+</body>
+</html>

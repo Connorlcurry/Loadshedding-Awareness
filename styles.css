@@ -1,0 +1,16 @@
+
+    .navbar, h1, h2 {
+        font-family: "Play", sans-serif;
+    }
+
+    .navbar-brand {
+        color: white;
+    }
+
+    .nav-link {
+        color: white;
+    }   
+
+    .nav-link active {
+        color: white;
+    }  
